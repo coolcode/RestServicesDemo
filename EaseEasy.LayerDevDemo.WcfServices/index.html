@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WCF Service Demo</title>
+</head>
+<body>
+    <h1>WCF Service Demo</h1>
+    <form id="form1">
+        <p>
+            User Name:
+            <input name="Name" value="Bruce" type="text" />
+        </p>
+        <p>
+            Age:
+            <input name="Age" value="18" type="text" />
+        </p>
+    </form>
+    <button id="btn" type="button">Submit</button>
+    <div id="result"></div>
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="json2.js"></script>
+    <script>
+        $(function () {
+            $('#btn').on('click', function () {
+                $.ajax({
+                    url: '/FooService.svc/GetUser',
+                    type: 'post',
+                    dataType: 'json',
+                    contentType: "application/json",
+                    data: JSON.stringify({ user: { Name: $('[name=Name]').val(), Age: $('[name=Age]').val() } }),
+                    cache: false,
+                    success: function (data) {
+                        var user = data.d;
+                        var result = "<p>User Name:" + user.Name + "</p>"
+                            + "<p>Age:" + user.Age + "</p>";
+                        $('#result').html(result);
+                    }
+                });
+            });
+        });
+         
+    </script>
+</body>
+</html>
