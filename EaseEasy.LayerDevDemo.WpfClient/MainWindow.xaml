@@ -1,0 +1,25 @@
+﻿<Window x:Class="EaseEasy.LayerDevDemo.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="分层开发Demo-WPF客户端" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="158*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="427*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="1" Margin="5,5,5,5" >Name:</Label>
+        <Label Grid.Row="2" Margin="5,5,5,5" >Age:</Label>
+        <TextBox Name="UserName" Margin="5,5,5,5"  Grid.Column="1" Grid.Row="1"  >Bruce</TextBox>
+        <TextBox Name="Age" Margin="5,5,5,5" Grid.Column="1" Grid.Row="2" >18</TextBox>
+        <Button Name="btnSubmit" Height="30" Width="150" Margin="0,0,5,0" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" Click="btnSubmit_Click">Save</Button>
+        <Label Grid.Row="4" Margin="5,5,5,5" >Result:</Label>
+        <TextBlock Name="tbResult"  Margin="5,5,5,5" Grid.Column="1" Grid.Row="4" ></TextBlock>
+    </Grid>
+</Window>
